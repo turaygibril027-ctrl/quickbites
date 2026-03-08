@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QuickBite - Intercontinental Food Delivery</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+<div class="nav-container">
+<div class="logo">
+<img src="burger.jpg" alt="QuickBite Logo" class="logo-img">
+<p class="tagline">Fast & Fresh Delivery</p>
+</div>
+<ul class="nav-menu">
+<li><a href="#about">About</a></li>
+<li><a href="#menu">Menu</a></li>
+<li><a href="#services">Services</a></li>
+<li><a href="#reviews">Reviews</a></li>
+<li><a href="#contact">Contact</a></li>
+<li><a href="#" class="cart-icon" onclick="toggleCart()">🛒 Cart (<span id="cart-count">0</span>)</a></li>
+</ul>
+</div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+<div class="hero-content">
+<h1>QuickBite - Intercontinental Restaurant</h1>
+<p>Premium quality food delivered fresh and fast to your door</p>
+<a href="#menu" class="cta-btn">Explore Menu</a>
+</div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about-section">
+<div class="container">
+<h2>About QuickBite</h2>
+<div class="about-grid">
+<div class="about-box">
+<h3>🍔 Who We Are</h3>
+<p>QuickBite is Freetown's premium intercontinental restaurant offering authentic African, Asian, and European cuisine. We combine traditional flavors with modern presentation to deliver an unforgettable dining experience.</p>
+</div>
+<div class="about-box">
+<h3>🎉 Special Services</h3>
+<p><strong>Catering Available:</strong> We provide full catering services for weddings, corporate events, birthday parties, and special occasions. Customizable menus available for groups of any size.</p>
+</div>
+<div class="about-box">
+<h3>⏰ Hours of Operation</h3>
+<p><strong>Monday - Sunday</strong><br>10:00 AM - 10:00 PM<br><br>Delivery Available<br>30-45 minutes guaranteed</p>
+</div>
+<div class="about-box">
+<h3>📍 Our Location</h3>
+<p><strong>Onsite Restaurant:</strong><br>Freetown City Center<br>Sierra Leone<br><br>Dine-in Available</p>
+</div>
+</div>
+</section>
+
+<!-- Menu Section -->
+<section id="menu" class="menu-section">
+<div class="container">
+<h2>🍽️ Our Menu</h2>
+
+<!-- SECTION 1: BURGERS -->
+<div class="menu-category">
+<div class="category-image-box">
+<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600&h=400&fit=crop" alt="Burgers" class="category-image">
+<h3>Premium Burgers</h3>
+</div>
+<div class="category-items">
+<h4>Available Burgers:</h4>
+<ul>
+<li>Classic Beef Burger - Le 35,000</li>
+<li>Double Cheese Burger - Le 45,000</li>
+<li>Bacon Burger - Le 42,000</li>
+<li>Spicy Chicken Burger - Le 38,000</li>
+<li>Mushroom Burger - Le 40,000</li>
+<li>Veggie Burger - Le 32,000</li>
+</ul>
+<button class="add-section-btn" onclick="addCategoryToCart('Burger')">Add Burger to Cart</button>
+</div>
+</div>
+
+<!-- SECTION 2: PIZZA -->
+<div class="menu-category">
+<div class="category-image-box">
+<img src="https://images.unsplash.com/photo-1614680376573-df3960713406?w=600&h=400&fit=crop" alt="Pizza" class="category-image">
+<h3>Authentic Pizzas</h3>
+</div>
+<div class="category-items">
+<h4>Available Pizzas:</h4>
+<ul>
+<li>Pepperoni Pizza - Le 45,000</li>
+<li>Margherita Pizza - Le 40,000</li>
+<li>BBQ Chicken Pizza - Le 48,000</li>
+<li>Seafood Pizza - Le 55,000</li>
+<li>Vegetarian Pizza - Le 38,000</li>
+<li>Four Cheese Pizza - Le 50,000</li>
+</ul>
+<button class="add-section-btn" onclick="addCategoryToCart('Pizza')">Add Pizza to Cart</button>
+</div>
+</div>
+
+<!-- SECTION 3: PASTA -->
+<div class="menu-category">
+<div class="category-image-box">
+<img src="https://images.unsplash.com/photo-1621996346622-b0bed7e0e78e?w=600&h=400&fit=crop" alt="Pasta" class="category-image">
+<h3>Italian Pasta</h3>
+</div>
+<div class="category-items">
+<h4>Available Pasta:</h4>
+<ul>
+<li>Carbonara Pasta - Le 32,000</li>
+<li>Seafood Spaghetti - Le 48,000</li>
+<li>Garlic Parmesan Pasta - Le 28,000</li>
+<li>Pesto Pasta - Le 35,000</li>
+<li>Bolognese Pasta - Le 30,000</li>
+<li>Creamy Alfredo Pasta - Le 38,000</li>
+</ul>
+<button class="add-section-btn" onclick="addCategoryToCart('Pasta')">Add Pasta to Cart</button>
+</div>
+</div>
+
+<!-- SECTION 4: GRILLED DISHES -->
+<div class="menu-category">
+<div class="category-image-box">
+<img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&h=400&fit=crop" alt="Grilled" class="category-image">
+<h3>Grilled Specialties</h3>
+</div>
+<div class="category-items">
+<h4>Available Grilled Dishes:</h4>
+<ul>
+<li>Grilled Beef Steak - Le 55,000</li>
+<li>Grilled Salmon - Le 60,000</li>
+<li>Grilled Chicken Breast - Le 45,000</li>
+<li>Mixed Grill Platter - Le 75,000</li>
+<li>Grilled Shrimp - Le 65,000</li>
+<li>Grilled Lamb Chops - Le 70,000</li>
+</ul>
+<button class="add-section-btn" onclick="addCategoryToCart('Grilled')">Add Grilled to Cart</button>
+</div>
+</div>
+
+<!-- SECTION 5: AFRICAN DISHES -->
+<div class="menu-category">
+<div class="category-image-box">
+<img src="https://images.unsplash.com/photo-1584684604117-a95ad7c30957?w=600&h=400&fit=crop" alt="African Food" class="category-image">
+<h3>Traditional African Cuisine</h3>
+</div>
+<div class="category-items">
+<h4>Available African Dishes:</h4>
+<ul>
+<li>Jollof Rice with Chicken - Le 28,000</li>
+<li>Groundnut Stew - Le 29,000</li>
+<li>Cassava Leaves & Rice - Le 24,000</li>
+<li>Okra Soup with Meat - Le 25,000</li>
+<li>Fried Plantain & Beans - Le 18,000</li>
+<li>Pepper Soup (Spicy) - Le 20,000</li>
+</ul>
+<button class="add-section-btn" onclick="addCategoryToCart('African')">Add African Dish to Cart</button>
+</div>
+</div>
+
+<!-- SECTION 6: SEAFOOD -->
+<div class="menu-category">
+<div class="category-image-box">
+<img src="https://images.unsplash.com/photo-1580959375944-abd7e991f971?w=600&h=400&fit=crop" alt="Seafood" class="category-image">
+<h3>Fresh Seafood</h3>
+</div>
+<div class="category-items">
+<h4>Available Seafood:</h4>
+<ul>
+<li>Grilled Fish Platter - Le 50,000</li>
+<li>Fish Tacos - Le 35,000</li>
+<li>Garlic Shrimp - Le 55,000</li>
+<li>Baked Tilapia - Le 45,000</li>
+<li>Seafood Pasta - Le 48,000</li>
+<li>Fish & Chips - Le 32,000</li>
+</ul>
+<button class="add-section-btn" onclick="addCategoryToCart('Seafood')">Add Seafood to Cart</button>
+</div>
+</div>
+
+<!-- SECTION 7: RICE DISHES -->
+<div class="menu-category">
+<div class="category-image-box">
+<img src="https://images.unsplash.com/photo-1585521199219-351aab61fe67?w=600&h=400&fit=crop" alt="Rice Dishes" class="category-image">
+<h3>Flavored Rice Dishes</h3>
+</div>
+<div class="category-items">
+<h4>Available Rice Dishes:</h4>
+<ul>
+<li>Chicken Fried Rice - Le 22,000</li>
+<li>Shrimp Fried Rice - Le 32,000</li>
+<li>Vegetable Fried Rice - Le 18,000</li>
+<li>Asian Rice Bowl - Le 25,000</li>
+<li>Pineapple Fried Rice - Le 28,000</li>
+<li>Beef Fried Rice - Le 26,000</li>
+</ul>
+<button class="add-section-btn" onclick="addCategoryToCart('RiceDish')">Add Rice Dish to Cart</button>
+</div>
+</div>
+
+<!-- SECTION 8: BEVERAGES -->
+<div class="menu-category">
+<div class="category-image-box">
+<img src="https://images.unsplash.com/photo-1554866585-64ce88572674?w=600&h=400&fit=crop" alt="Beverages" class="category-image">
+<h3>Refreshing Beverages</h3>
+</div>
+<div class="category-items">
+<h4>Available Drinks:</h4>
+<ul>
+<li>Coca Cola / Fanta - Le 5,000</li>
+<li>Fresh Mango Juice - Le 8,000</li>
+<li>Fresh Orange Juice - Le 8,000</li>
+<li>Iced Tea - Le 6,000</li>
+<li>Espresso Coffee - Le 7,000</li>
+<li>Milkshakes (Strawberry/Chocolate) - Le 12,000</li>
+<li>Fresh Lemonade - Le 7,000</li>
+<li>Bottled Water - Le 3,000</li>
+</ul>
+<button class="add-section-btn" onclick="addCategoryToCart('Beverage')">Add Beverage to Cart</button>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- Services Section -->
+<section id="services" class="services-section">
+<div class="container">
+<h2>Our Services</h2>
+<div class="services-grid">
+<div class="service-box">
+<h3>🚗 Fast Delivery</h3>
+<p>Get your food delivered hot & fresh within 30-45 minutes. Free delivery for orders above Le 100,000</p>
+</div>
+<div class="service-box">
+<h3>🍽️ Dine-In</h3>
+<p>Visit our Freetown location for an authentic dining experience with premium ambiance and service</p>
+</div>
+<div class="service-box">
+<h3>🎂 Catering</h3>
+<p>Professional catering for weddings, corporate events, birthdays & celebrations. Customizable menus available</p>
+</div>
+<div class="service-box">
+<h3>📱 Easy Ordering</h3>
+<p>Order via WhatsApp, phone call, or our website. Multiple payment options available</p>
+</div>
+<div class="service-box">
+<h3>💯 Quality Assured</h3>
+<p>Fresh ingredients daily. All meals prepared by professional chefs following hygiene standards</p>
+</div>
+<div class="service-box">
+<h3>🎁 Special Events</h3>
+<p>Plan your special moments with us. Let us handle the food while you enjoy your celebration</p>
+</div>
+</div>
+</section>
+
+<!-- Reviews Section -->
+<section id="reviews" class="reviews-section">
+<div class="container">
+<h2>⭐ What Our Customers Say</h2>
+<div class="reviews-grid">
+<div class="review-box">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<p>"QuickBite delivered my wedding catering! The food was absolutely delicious and the service was professional. Highly recommended!" - Asha M.</p>
+<h4>Wedding Catering Client</h4>
+</div>
+<div class="review-box">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<p>"The jollof rice tastes authentic and homemade. Delivery was quick and food arrived hot. Best restaurant in Freetown!" - Mohamed A.</p>
+<h4>Regular Customer</h4>
+</div>
+<div class="review-box">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<p>"I ordered the grilled fish platter and it was perfectly cooked. The customer service is excellent. Will order again soon!" - Sarah K.</p>
+<h4>Seafood Lover</h4>
+</div>
+<div class="review-box">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<p>"Fantastic pizza quality, fresh ingredients, and quick delivery. We order from QuickBite at least twice a week now!" - James T.</p>
+<h4>Pizza Enthusiast</h4>
+</div>
+<div class="review-box">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<p>"Used their catering for my corporate event. 150 guests and everyone was impressed. Professional, organized, and delicious!" - Dr. Sesay</p>
+<h4>Corporate Event Organizer</h4>
+</div>
+<div class="review-box">
+<div class="stars">⭐⭐⭐⭐⭐</div>
+<p>"The carbonara pasta is incredible - tastes like Italy! Great value for money and friendly staff. Highly satisfied!" - Fatima B.</p>
+<h4>Pasta Fan</h4>
+</div>
+</div>
+</section>
+
+<!-- Shopping Cart Modal -->
+<div id="cartModal" class="cart-modal">
+<div class="cart-content">
+<span class="close-btn" onclick="toggleCart()">&times;</span>
+<h2>Your Order</h2>
+
+<div id="cart-items" class="cart-items">
+<!-- Items will be added here -->
+</div>
+
+<div class="cart-summary">
+<div class="summary-row">
+<span>Subtotal:</span>
+<span id="subtotal">Le 0</span>
+</div>
+<div class="summary-row">
+<span>Delivery Fee:</span>
+<span id="delivery-fee">Le 5,000</span>
+</div>
+<div class="summary-row total">
+<span>Total:</span>
+<span id="total">Le 5,000</span>
+</div>
+</div>
+
+<h3>Payment Method</h3>
+<div class="payment-methods">
+<label>
+<input type="radio" name="payment" value="whatsapp" checked>
+<span>📱 WhatsApp</span>
+</label>
+<label>
+<input type="radio" name="payment" value="cash">
+<span>💵 Cash on Delivery</span>
+</label>
+<label>
+<input type="radio" name="payment" value="mobile">
+<span>📲 Mobile Money</span>
+</label>
+</div>
+
+<div class="delivery-info">
+<h3>Delivery Information</h3>
+<input type="text" id="address" placeholder="Enter delivery address" class="input-field">
+<input type="tel" id="phone" placeholder="Enter phone number" class="input-field">
+</div>
+
+<button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+</div>
+</div>
+
+<!-- Contact Section -->
+<section id="contact" class="contact-section">
+<div class="container">
+<h2>📍 Contact & Location</h2>
+<div class="contact-grid">
+<div class="contact-box">
+<h3>📍 Onsite Restaurant</h3>
+<p><strong>Address:</strong><br>Freetown City Center<br>Sierra Leone<br><br>Come dine with us!</p>
+</div>
+<div class="contact-box">
+<h3>📞 Phone</h3>
+<p><strong>Call us:</strong><br>+232 76 995 101<br><br>Monday-Sunday<br>10:00 AM - 10:00 PM</p>
+</div>
+<div class="contact-box">
+<h3>💬 WhatsApp</h3>
+<p><a href="https://wa.me/+23276995101" target="_blank" class="whatsapp-link">Chat on WhatsApp</a><br><br>Quick ordering & support available</p>
+</div>
+<div class="contact-box">
+<h3>🎉 Catering Inquiries</h3>
+<p>Events, Weddings, Corporate Functions<br><br>Custom quotation available<br>Call: +232 76 995 101</p>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+<div class="footer-content">
+<p>&copy; 2026 QuickBite Intercontinental Restaurant</p>
+<p>Premium Quality | Fast Delivery | Professional Catering</p>
+<p>Freetown, Sierra Leone</p>
+</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
