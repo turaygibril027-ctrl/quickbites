@@ -15,16 +15,38 @@
 <img src="burger.jpg" alt="QuickBite Logo" class="logo-img">
 <p class="tagline">Fast & Fresh Delivery</p>
 </div>
-<ul class="nav-menu">
-<li><a href="#about">About</a></li>
-<li><a href="#menu">Menu</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#reviews">Reviews</a></li>
-<li><a href="#contact">Contact</a></li>
-<li><a href="#" class="cart-icon" onclick="toggleCart()">🛒 Cart (<span id="cart-count">0</span>)</a></li>
-</ul>
+<div class="hamburger" onclick="toggleDropdown()">
+<span></span>
+<span></span>
+<span></span>
+</div>
 </div>
 </nav>
+
+<!-- Dropdown Menu -->
+<div class="dropdown-menu" id="dropdownMenu">
+<ul class="dropdown-menu-list">
+<li><a href="#about" onclick="toggleDropdown()">About</a></li>
+<li><a href="#menu" onclick="toggleDropdown()">Menu</a></li>
+<li><a href="#services" onclick="toggleDropdown()">Services</a></li>
+<li><a href="#reviews" onclick="toggleDropdown()">Reviews</a></li>
+<li><a href="#contact" onclick="toggleDropdown()">Contact</a></li>
+<li><a href="#" class="dropdown-cart" onclick="toggleCart(); toggleDropdown()">🛒 Cart (<span id="cart-count">0</span>)</a></li>
+</ul>
+</div>
+
+<!-- Mobile Sidebar Menu (keeping for backward compatibility) -->
+<div class="sidebar" id="sidebar">
+<div class="sidebar-close" onclick="toggleSidebar()">✕</div>
+<ul class="sidebar-menu">
+<li><a href="#about" onclick="toggleSidebar()">🍔 About Us</a></li>
+<li><a href="#menu" onclick="toggleSidebar()">🍽️ Menu</a></li>
+<li><a href="#services" onclick="toggleSidebar()">🚗 Services</a></li>
+<li><a href="#reviews" onclick="toggleSidebar()">⭐ Reviews</a></li>
+<li><a href="#contact" onclick="toggleSidebar()">📞 Contact</a></li>
+<li><a href="#" class="sidebar-cart" onclick="toggleCart(); toggleSidebar();">🛒 View Cart (<span id="cart-count-sidebar">0</span>)</a></li>
+</ul>
+</div>
 
 <!-- Hero Section -->
 <section class="hero">
@@ -61,7 +83,7 @@
 
 <!-- Menu Section -->
 <section id="menu" class="menu-section">
-<div class="container">
+''<div class="container">
 <h2>🍽️ Our Menu</h2>
 
 <!-- SECTION 1: BURGERS -->
@@ -73,12 +95,12 @@
 <div class="category-items">
 <h4>Available Burgers:</h4>
 <ul>
-<li>Classic Beef Burger - Le 35,000</li>
-<li>Double Cheese Burger - Le 45,000</li>
-<li>Bacon Burger - Le 42,000</li>
-<li>Spicy Chicken Burger - Le 38,000</li>
-<li>Mushroom Burger - Le 40,000</li>
-<li>Veggie Burger - Le 32,000</li>
+<li>Classic Beef Burger - Le 75:00</li>
+<li>Double Cheese Burger - Le 60:00</li>
+<li>Bacon Burger - Le 42:00</li>
+<li>Spicy Chicken Burger - Le 48:00</li>
+<li>Mushroom Burger - Le 40:00</li>
+<li>Veggie Burger - Le 30:00</li>
 </ul>
 <button class="add-section-btn" onclick="addCategoryToCart('Burger')">Add Burger to Cart</button>
 </div>
@@ -87,40 +109,40 @@
 <!-- SECTION 2: PIZZA -->
 <div class="menu-category">
 <div class="category-image-box">
-<img src="https://images.unsplash.com/photo-1614680376573-df3960713406?w=600&h=400&fit=crop" alt="Pizza" class="category-image">
-<h3>Authentic Pizzas</h3>
+<img src="photo1.jpg" alt="Pizza" class="category-image">
+<h3>Pizza</h3>
 </div>
 <div class="category-items">
 <h4>Available Pizzas:</h4>
 <ul>
-<li>Pepperoni Pizza - Le 45,000</li>
-<li>Margherita Pizza - Le 40,000</li>
-<li>BBQ Chicken Pizza - Le 48,000</li>
-<li>Seafood Pizza - Le 55,000</li>
-<li>Vegetarian Pizza - Le 38,000</li>
-<li>Four Cheese Pizza - Le 50,000</li>
+<li>Pepperoni Pizza - Le 210 </li>
+<li>Margherita Pizza - Le 250</li>
+<li>BBQ Chicken Pizza - Le 245</li>
+<li>Seafood Pizza - Le 330</li>
+<li>Vegetarian Pizza - Le 240</li>
+<li>Four Cheese Pizza - Le 280</li>
 </ul>
 <button class="add-section-btn" onclick="addCategoryToCart('Pizza')">Add Pizza to Cart</button>
 </div>
 </div>
 
-<!-- SECTION 3: PASTA -->
+<!-- SECTION 3: ITALIAN PIZZA -->
 <div class="menu-category">
 <div class="category-image-box">
-<img src="https://images.unsplash.com/photo-1621996346622-b0bed7e0e78e?w=600&h=400&fit=crop" alt="Pasta" class="category-image">
-<h3>Italian Pasta</h3>
+<img src="photo2.jpg" alt="Italian Pizza" class="category-image">
+<h3>Italian Pizza</h3>
 </div>
 <div class="category-items">
-<h4>Available Pasta:</h4>
+<h4>Available Italian Pizza:</h4>
 <ul>
-<li>Carbonara Pasta - Le 32,000</li>
-<li>Seafood Spaghetti - Le 48,000</li>
-<li>Garlic Parmesan Pasta - Le 28,000</li>
-<li>Pesto Pasta - Le 35,000</li>
-<li>Bolognese Pasta - Le 30,000</li>
-<li>Creamy Alfredo Pasta - Le 38,000</li>
+<li>Carbonara Pizza - Le 150</li>
+<li>Seafood Pizza Premium - Le 270</li>
+<li>Garlic Parmesan Pizza - Le 140</li>
+<li>Pesto Pizza - Le 230</li>
+<li>Bolognese Pizza - Le 400</li>
+<li>Creamy Alfredo Pizza - Le 250</li>
 </ul>
-<button class="add-section-btn" onclick="addCategoryToCart('Pasta')">Add Pasta to Cart</button>
+<button class="add-section-btn" onclick="addCategoryToCart('ItalianPizza')">Add Italian Pizza to Cart</button>
 </div>
 </div>
 
@@ -133,12 +155,12 @@
 <div class="category-items">
 <h4>Available Grilled Dishes:</h4>
 <ul>
-<li>Grilled Beef Steak - Le 55,000</li>
-<li>Grilled Salmon - Le 60,000</li>
-<li>Grilled Chicken Breast - Le 45,000</li>
-<li>Mixed Grill Platter - Le 75,000</li>
-<li>Grilled Shrimp - Le 65,000</li>
-<li>Grilled Lamb Chops - Le 70,000</li>
+<li>Grilled Beef Steak - Le 55.00</li>
+<li>Grilled Salmon - Le 60.00</li>
+<li>Grilled Chicken Breast - Le 400.00</li>
+<li>Mixed Grill Platter - Le 75.00</li>
+<li>Grilled Shrimp - Le 65.00</li>
+<li>Grilled Lamb Chops - Le 70.00</li>
 </ul>
 <button class="add-section-btn" onclick="addCategoryToCart('Grilled')">Add Grilled to Cart</button>
 </div>
@@ -147,18 +169,18 @@
 <!-- SECTION 5: AFRICAN DISHES -->
 <div class="menu-category">
 <div class="category-image-box">
-<img src="https://images.unsplash.com/photo-1584684604117-a95ad7c30957?w=600&h=400&fit=crop" alt="African Food" class="category-image">
+<img src="photo3.jpg" alt="African Food" class="category-image">
 <h3>Traditional African Cuisine</h3>
 </div>
 <div class="category-items">
 <h4>Available African Dishes:</h4>
 <ul>
-<li>Jollof Rice with Chicken - Le 28,000</li>
-<li>Groundnut Stew - Le 29,000</li>
-<li>Cassava Leaves & Rice - Le 24,000</li>
-<li>Okra Soup with Meat - Le 25,000</li>
-<li>Fried Plantain & Beans - Le 18,000</li>
-<li>Pepper Soup (Spicy) - Le 20,000</li>
+<li>Jollof Rice with Chicken - Le 180</li>
+<li>Groundnut Stew - Le 130</li>
+<li>Cassava Leaves & Rice - Le 152 </li>
+<li>Okra Soup with Meat - Le 150 </li>
+<li>Fried Plantain & Beans - Le 144</li>
+<li>Pepper Soup (Spicy) - Le 130</li>
 </ul>
 <button class="add-section-btn" onclick="addCategoryToCart('African')">Add African Dish to Cart</button>
 </div>
@@ -173,12 +195,12 @@
 <div class="category-items">
 <h4>Available Seafood:</h4>
 <ul>
-<li>Grilled Fish Platter - Le 50,000</li>
-<li>Fish Tacos - Le 35,000</li>
-<li>Garlic Shrimp - Le 55,000</li>
-<li>Baked Tilapia - Le 45,000</li>
-<li>Seafood Pasta - Le 48,000</li>
-<li>Fish & Chips - Le 32,000</li>
+<li>Grilled Fish Platter - Le 150.00</li>
+<li>Fish Tacos - Le 75.00</li>
+<li>Garlic Shrimp - Le 55.00</li>
+<li>Baked Tilapia - Le 45.00</li>
+<li>Seafood Pasta - Le 48.00</li>
+<li>Fish & Chips - Le 5ss2.00</li>
 </ul>
 <button class="add-section-btn" onclick="addCategoryToCart('Seafood')">Add Seafood to Cart</button>
 </div>
@@ -187,18 +209,18 @@
 <!-- SECTION 7: RICE DISHES -->
 <div class="menu-category">
 <div class="category-image-box">
-<img src="https://images.unsplash.com/photo-1585521199219-351aab61fe67?w=600&h=400&fit=crop" alt="Rice Dishes" class="category-image">
+<img src="photo4.jpg" alt="Rice Dishes" class="category-image">
 <h3>Flavored Rice Dishes</h3>
 </div>
 <div class="category-items">
 <h4>Available Rice Dishes:</h4>
 <ul>
-<li>Chicken Fried Rice - Le 22,000</li>
-<li>Shrimp Fried Rice - Le 32,000</li>
-<li>Vegetable Fried Rice - Le 18,000</li>
-<li>Asian Rice Bowl - Le 25,000</li>
-<li>Pineapple Fried Rice - Le 28,000</li>
-<li>Beef Fried Rice - Le 26,000</li>
+<li>Chicken Fried Rice - Le 166 </li>
+<li>Shrimp Fried Rice - Le 156 </li>
+<li>Vegetable Fried Rice - Le 144 </li>
+<li>Asian Rice Bowl - Le 150 </li>
+<li>Pineapple Fried Rice - Le 124 </li>
+<li>Beef Fried Rice - Le 160</li>
 </ul>
 <button class="add-section-btn" onclick="addCategoryToCart('RiceDish')">Add Rice Dish to Cart</button>
 </div>
@@ -207,20 +229,20 @@
 <!-- SECTION 8: BEVERAGES -->
 <div class="menu-category">
 <div class="category-image-box">
-<img src="https://images.unsplash.com/photo-1554866585-64ce88572674?w=600&h=400&fit=crop" alt="Beverages" class="category-image">
+<img src="photo5.jpg" alt="Beverages" class="category-image">
 <h3>Refreshing Beverages</h3>
 </div>
 <div class="category-items">
 <h4>Available Drinks:</h4>
 <ul>
-<li>Coca Cola / Fanta - Le 5,000</li>
-<li>Fresh Mango Juice - Le 8,000</li>
-<li>Fresh Orange Juice - Le 8,000</li>
-<li>Iced Tea - Le 6,000</li>
-<li>Espresso Coffee - Le 7,000</li>
-<li>Milkshakes (Strawberry/Chocolate) - Le 12,000</li>
-<li>Fresh Lemonade - Le 7,000</li>
-<li>Bottled Water - Le 3,000</li>
+<li>Coca Cola / Fanta - Le 290 </li>
+<li>Fresh Mango Juice - Le 464 </li>
+<li>Fresh Orange Juice - Le 464 </li>
+<li>Iced Tea - Le 348 </li>
+<li>Espresso Coffee - Le 406 </li>
+<li>Milkshakes (Strawberry/Chocolate) - Le 696 ($0.12)</li>
+<li>Fresh Lemonade - Le 406 </li>
+<li>Bottled Water - Le 174 </li>
 </ul>
 <button class="add-section-btn" onclick="addCategoryToCart('Beverage')">Add Beverage to Cart</button>
 </div>
@@ -385,3 +407,5 @@
 
 <script src="script.js"></script>
 </body>
+
+</html>
