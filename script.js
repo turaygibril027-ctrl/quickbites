@@ -35,6 +35,35 @@ function addToCart(itemName, price) {
     }
     
     updateCartUI();
+    showNotification(`✅ ${itemName} added to cart!`, true);
+}
+
+// Show notification toast with optional proceed button
+function showNotification(message, showProceed = false) {
+    const toast = document.getElementById('notificationToast');
+    const messageSpan = document.getElementById('notificationMessage');
+    const proceedBtn = document.getElementById('notificationProceedBtn');
+    
+    messageSpan.textContent = message;
+    
+    if (showProceed) {
+        proceedBtn.style.display = 'inline-block';
+    } else {
+        proceedBtn.style.display = 'none';
+    }
+    
+    toast.classList.add('show');
+    
+    // Auto hide after 5 seconds
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 5000);
+}
+
+// Proceed to checkout from notification
+function proceedFromNotification() {
+    document.getElementById('notificationToast').classList.remove('show');
+    toggleCart();
 }
 
 // Remove item from cart
@@ -86,7 +115,7 @@ function updateCartUI() {
         cartItems.appendChild(cartItem);
     });
     
-    const deliveryFee = 5000;
+    const deliveryFee = 0; // FREE DELIVERY!
     const total = subtotal + deliveryFee;
     
     document.getElementById('subtotal').textContent = `Le ${subtotal.toFixed(2)}`;
@@ -113,15 +142,51 @@ function checkout() {
         return;
     }
     
-    const orderSummary = cart.map(item => `${item.name} x${item.quantity}`).join('\n');
-    const message = `Order:\n${orderSummary}\nDelivery to: ${address}\nPhone: ${phone}\nPayment: ${paymentMethod}`;
+    // Calculate total
+    let subtotal = 0;
+    cart.forEach(item => {
+        subtotal += item.price * item.quantity;
+    });
+    const deliveryFee = 0; // FREE DELIVERY!
+    const total = subtotal + deliveryFee;
     
-    alert('Order placed!\n' + message);
+    const orderSummary = cart.map(item => `${item.name} x${item.quantity} = Le ${(item.price * item.quantity).toFixed(2)}`).join('\n');
+    const paymentMethodDisplay = {
+        'whatsapp': 'WhatsApp',
+        'cash': 'Cash on Delivery',
+        'mobile': 'Mobile Money'
+    }[paymentMethod];
     
-    // Reset cart
-    cart = [];
-    updateCartUI();
-    toggleCart();
+    // If WhatsApp payment, send to WhatsApp
+    if (paymentMethod === 'whatsapp') {
+        const message = `*Order from QuickBite* 🍔\n\n*Customer Details:*\nName: ${phone}\nAddress: ${address}\n\n*Order Items:*\n${orderSummary}\n\n*Summary:*\nSubtotal: Le ${subtotal.toFixed(2)}\nDelivery Fee: FREE 🎉\nTotal: Le ${total.toFixed(2)}\n\n*Payment Method:* WhatsApp\n\nPlease confirm this order. Thank you!`;
+        
+        // WhatsApp Business number (update with your number)
+        const whatsappNumber = '23276995101'; // Format: country code + number without +
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+        
+        // Open WhatsApp in new tab
+        window.open(whatsappUrl, '_blank');
+        
+        // Show success message
+        alert('Opening WhatsApp with your order details...\n\nYour order has been sent to our WhatsApp. Our team will confirm your order shortly!');
+        
+        // Clear cart and close modal
+        cart = [];
+        updateCartUI();
+        toggleCart();
+    } else {
+        // For other payment methods, show normal confirmation
+        const message = `✅ ORDER CONFIRMED!\n\n📦 Items:\n${orderSummary}\n\n💰 Subtotal: Le ${subtotal.toFixed(2)}\n📦 Delivery Fee: FREE 🎉\n💳 Total: Le ${total.toFixed(2)}\n\n📍 Delivery Address: ${address}\n📞 Phone: ${phone}\n💳 Payment Method: ${paymentMethodDisplay}\n\nThank you for your order!`;
+        
+        alert(message);
+        
+        // Reset cart
+        cart = [];
+        updateCartUI();
+        toggleCart();
+    }
 }
 
 // Close dropdown/sidebar when clicking outside
